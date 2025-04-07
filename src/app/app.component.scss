@@ -1,3 +1,4 @@
+/*
 .sidenav-container{
     height: 100%;
 }
@@ -66,33 +67,6 @@
     align-items: center;
 }
 
-
-// .hero{
-//     position: relative;
-//     background: url('../assets/ChatGPT-hero.png');
-//     color: #fff;
-//     text-align: center;
-//     padding: 150px 20px;
-//     height: 60%;
-//     width: 100%;
-// }
-
-// .hero-overlay{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     background: rgba(0, 0, 0, 0.5);
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-// .hero-content{
-//     position: relative;
-//     z-index: 2;
-// }
 
 .hero h1{
     font-size: 3.5em;
@@ -172,23 +146,6 @@
 }
 
 
-// .video-container{
-//     position: relative;
-//     padding-bottom: 56.25%;
-//     height: 0;
-//     overflow: hidden;
-//     margin-top: 10px;
-// }
-
-// .video-container iframe{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     border: 0;
-// }
-
 .project-image{
     width: 100%;
     height: auto;
@@ -203,3 +160,188 @@ footer{
     padding: 20px 10px;
     margin-top: 40px;
 }
+
+*/
+
+$primary-color: #1976d2;
+$accent-color: #ffc107;
+$background-color: #f5f5f5;
+$text-color: #333;
+
+.sidenav-container {
+  height: 100vh;
+  background-color: $background-color;
+
+  .mat-sidenav {
+    width: 240px;
+    background: #fff;
+
+    a.mat-list-item {
+      font-weight: 500;
+      color: $text-color;
+
+      &:hover {
+        background-color: rgba($color: $primary-color, $alpha: 0.1);
+      }
+    }
+  }
+
+  .mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: $primary-color;
+    color: white;
+
+    .menu-button {
+      margin-right: 8px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+
+    .desktop-nav {
+      display: none;
+
+      button {
+        color: white;
+        font-weight: 500;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      .desktop-nav {
+        display: flex;
+        gap: 8px;
+      }
+
+      .menu-button {
+        display: none;
+      }
+    }
+  }
+
+  .hero{
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/ChatGPT-hero.png') no-repeat center;
+    color: white;
+    text-align: center;
+  }
+
+  .hero-content{
+    z-index: 1;
+
+    h1{
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    p{
+        font-size: 18px;
+        margin-top: 10px;
+        color: #ddd;
+    }
+  }
+
+  .hero-overlay{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.content{
+    padding: 24px;
+
+    .section{
+        margin-bottom: 40px;
+
+        .section-card{
+            padding: 16px;
+            box-shadow: 0 2px 8p rgba(0, 0, 0, 0.1);
+        }
+
+        h3{
+            margin-top: 0;
+            color: $primary-color;
+        }
+
+        ul{
+            padding-left: 20px;
+
+            li{
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    .skills-list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .skill{
+            background-color: $primary-color;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    .projects-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .project-card{
+            .project-image{
+                width: 100%;
+                height: auto;
+                margin-top: 10px;
+                border-radius: 4px;
+            }
+
+            mat-card-title{
+                font-weight: bold;
+                margin-top: 10px;
+            }
+
+            mat-card-content{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+footer{
+    text-align: center;
+    padding: 16px;
+    background-color: #e0e0e0;
+    font-size: 14px;
+    color: $text-color;
+}
+
+
