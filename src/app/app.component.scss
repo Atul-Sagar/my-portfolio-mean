@@ -193,7 +193,7 @@ $text-color: #333;
   }
 
   .mat-sidenav-content {
-    background-color: #f5f5f5;
+    background-color: $background-color;
   }
 
   .mat-toolbar {
@@ -270,18 +270,27 @@ $text-color: #333;
   }
 
   .hero-content {
-    z-index: 1;
+    // z-index: 1;
+
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     h1 {
       font-size: 48px;
       font-weight: 700;
       margin: 0;
+      animation: fadeInDown 1s ease-out;
     }
 
     p {
       font-size: 18px;
       margin-top: 10px;
       color: #ddd;
+      animation: fadeInUp 1s ease-out;
     }
   }
 
@@ -295,15 +304,45 @@ $text-color: #333;
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .content {
   padding: 24px;
+  margin-top: 20px;
 
   .section {
     margin-bottom: 40px;
 
     .section-card {
       padding: 16px;
-      box-shadow: 0 2px 8p rgba(0, 0, 0, 0.1);
+      //   box-shadow: 0 2px 8p rgba(0, 0, 0, 0.1);
+
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
     }
 
     h3 {
@@ -320,25 +359,25 @@ $text-color: #333;
     }
   }
 
-  .skill-row{
+  .skill-row {
     display: flex;
     align-items: center;
     gap: 12px;
     margin: 8px 0;
   }
 
-  .skill-label{
+  .skill-label {
     flex: 1;
     min-width: 130px;
     font-weight: 500;
     color: white;
   }
 
-  .skill-slider{
+  .skill-slider {
     flex: 3;
   }
 
-  .skill-value{
+  .skill-value {
     width: 24px;
     text-align: right;
     font-weight: bold;
@@ -396,3 +435,78 @@ footer {
   font-size: 14px;
   color: $text-color;
 }
+
+// @keyframes fadeInTop {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(-20px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes fadeInBottom {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(20px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// .mat-toolbar {
+//   animation: fadeInTop 0.8s ease-out;
+// }
+
+// .hero-content h1,
+// .hero-content p {
+//   opacity: 0;
+//   animation: fadeInBottom 1s ease forwards;
+// }
+
+// .hero-content h1 {
+//   animation-delay: 0.3s;
+// }
+
+// .hero-content p {
+//   animation-delay: 0.6s;
+// }
+
+// .fade-in-section {
+//   opacity: 0;
+//   transform: translateY(30px);
+//   transition: all 0.6s ease-out;
+
+//   &.in-view {
+//     opacity: 1;
+//     transform: none;
+//   }
+// }
+
+// .section-card,
+// .project-card {
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+//   &:hover {
+//     transform: translateY(-6px);
+//     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+//   }
+// }
+
+// .mat-list-item,
+// nav.desktop-nav button {
+//   transition: background-color 0.3s ease, transform 0.2s ease;
+
+//   &:hover {
+//     transform: scale(1.02);
+//   }
+// }
+
+// footer {
+//   animation: fadeInBottom 1s ease 0.3s forwards;
+//   opacity: 0;
+// }
