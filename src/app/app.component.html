@@ -18,9 +18,9 @@
         <mat-icon>menu</mat-icon>
       </button>
       <!-- <span class="logo">Atul Sagar</span> -->
-       <span class="logo">
+      <span class="logo">
         <img class="logo-image" src="assets/ChatGPT-nameLogo4.png" alt="Logo">
-       </span>
+      </span>
       <span class="spacer"></span>
       <nav class="desktop-nav">
         <button mat-button (click)="scrollTo('about')">About</button>
@@ -51,41 +51,98 @@
             <mat-card-title>About Me</mat-card-title>
           </mat-card-header>
           <mat-card-content>
+
             <p>
-              Hi, I'm Atul Sagar—a passionate R&D Developer with 4 years of experience, primarily focusing on the MEAN stack.
-              I've also worked with .NET, Python, Golang, and Flutter (certified in 2020). I love building scalable solutions,
-              leading projects, and constantly learning new technologies.
+              Hi, I'm <strong>Atul Sagar</strong> — a passionate and results-driven
+              <strong>Research & Development Developer</strong> with over <strong>4 years of experience</strong>
+              in full-stack development. My core expertise lies in the <strong>MEAN stack</strong> (MongoDB, Express.js,
+              Angular, and Node.js),
+              where I’ve architected and delivered scalable web applications across a variety of domains.
+            </p>
+
+            <p>
+              Over the years, I’ve expanded my technical horizon by working with technologies such as
+              <strong>.NET</strong>, <strong>Python</strong>, <strong>Golang</strong>, and <strong>Flutter</strong> —
+              the latter of which I became <strong>certified in 2020</strong>. This diverse skill set has empowered me
+              to pick the right tools for the right problems and deliver efficient, high-performance solutions.
+            </p>
+
+            <p>
+              I take pride in leading projects end-to-end — from conceptualization to deployment — ensuring clean
+              architecture,
+              maintainable code, and robust performance. My R&D mindset helps me stay ahead of the curve, constantly
+              experimenting with new technologies, frameworks, and tools to improve productivity and product quality.
+            </p>
+
+            <p>
+              What sets me apart is not just the code I write, but the problems I solve, the teams I empower,
+              and the experiences I create.
             </p>
           </mat-card-content>
         </mat-card>
       </section>
 
       <!-- Skills Section -->
+      <!-- <section id="skills" class="section">
+        <mat-card class="section-card">
+          <mat-card-header>
+            <mat-card-title>Skills</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngFor="let skill of skills" class="skill-item">
+              <label>{{ skill.name }}</label>
+              <input type="range"
+                     min="0"
+                     max="10"
+                     step="1"
+                     [(ngModel)]="skill.value" />
+              <span>{{ skill.value }}</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </section> -->
+
+      <!-- <section id="skills" class="section">
+        <mat-card class="section-card">
+          <mat-card-header>
+            <mat-card-title>Skills</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngFor="let skill of skills" class="skill-item">
+              <label>{{ skill.name }}</label>
+              <input type="range"
+                     class="custom-slider"
+                     min="0"
+                     max="10"
+                     step="1"
+                     [(ngModel)]="skill.value" />
+              <span>{{ skill.value }}</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </section> -->
+
+
       <section id="skills" class="section">
         <mat-card class="section-card">
           <mat-card-header>
             <mat-card-title>Skills</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <div class="skills-list">
-              <span class="skill">HTML</span>
-              <span class="skill">CSS</span>
-              <span class="skill">JavaScript</span>
-              <span class="skill">Angular</span>
-              <span class="skill">Node.js</span>
-              <span class="skill">Express.js</span>
-              <span class="skill">MySQL</span>
-              <span class="skill">.NET</span>
-              <span class="skill">Python</span>
-              <span class="skill">Golang</span>
-              <span class="skill">Flutter</span>
-              <span class="skill">Leadership</span>
-              <span class="skill">Teamwork</span>
-              <span class="skill">Communication (Improving)</span>
+            <div *ngFor="let skill of skills" class="skill-row">
+              <span class="skill-label">{{ skill.name }}</span>
+              <input type="range"
+                     min="0"
+                     max="10"
+                     step="1"
+                     [(ngModel)]="skill.value"
+                     class="skill-slider" />
+              <span class="skill-value">{{ skill.value }}</span>
             </div>
           </mat-card-content>
         </mat-card>
       </section>
+      
 
       <!-- Experience Section -->
       <section id="experience" class="section">

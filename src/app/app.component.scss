@@ -202,11 +202,17 @@ $text-color: #333;
     z-index: 1000;
     background-color: $primary-color;
     color: white;
+    overflow: hidden;
 
-    .logo-image {
+    .logo {
+      background-color: $background-color;
+      // z-index: 10001;
+
+      .logo-image {
         margin-top: 10px;
-      height: 90px;
-      object-fit: contain;
+        height: 90px;
+        object-fit: contain;
+      }
     }
 
     // .logo-image{
@@ -314,20 +320,45 @@ $text-color: #333;
     }
   }
 
-  .skills-list {
+  .skill-row{
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    .skill {
-      background-color: $primary-color;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-    }
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
   }
+
+  .skill-label{
+    flex: 1;
+    min-width: 130px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .skill-slider{
+    flex: 3;
+  }
+
+  .skill-value{
+    width: 24px;
+    text-align: right;
+    font-weight: bold;
+    color: white;
+  }
+
+  //   .skills-list {
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     gap: 10px;
+
+  //     .skill {
+  //       background-color: $primary-color;
+  //       color: white;
+  //       padding: 6px 12px;
+  //       border-radius: 20px;
+  //       font-size: 14px;
+  //       font-weight: 500;
+  //     }
+  //   }
 
   .projects-grid {
     display: grid;
