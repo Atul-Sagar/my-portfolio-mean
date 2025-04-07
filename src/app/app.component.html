@@ -134,7 +134,8 @@
           </mat-card-header>
           <mat-card-content>
             <div *ngFor="let skill of skills" class="skill-row">
-              <p>Icon here</p>
+              <!-- <i [class]="skill.icon"></i> -->
+              <img [src]="skill.icon" [alt]="skill.name" width="32" height="32" />
               <span class="skill-label">{{ skill.name }}</span>
               <input type="range"
                      min="0"
