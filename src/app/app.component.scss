@@ -39,25 +39,60 @@
 
 .hero{
     position: relative;
-    background: url('https://placehold.co/1400x350');
+    background: url('../assets/ChatGPT-hero.png');
+    background-size: cover;
+    background-position: center;
     color: #fff;
     text-align: center;
-    padding: 150px 20px;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-overlay{
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0;left: 0;right: 0;bottom: 0;
     background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content{
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+
+// .hero{
+//     position: relative;
+//     background: url('../assets/ChatGPT-hero.png');
+//     color: #fff;
+//     text-align: center;
+//     padding: 150px 20px;
+//     height: 60%;
+//     width: 100%;
+// }
+
+// .hero-overlay{
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(0, 0, 0, 0.5);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .hero-content{
+//     position: relative;
+//     z-index: 2;
+// }
 
 .hero h1{
     font-size: 3.5em;
