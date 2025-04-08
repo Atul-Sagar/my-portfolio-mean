@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -10,7 +10,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
-
 
 
 
@@ -29,6 +28,8 @@ import { NgFor } from '@angular/common';
     FormsModule,
     NgFor,
     ReactiveFormsModule,
+    RouterModule,
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -36,42 +37,25 @@ import { NgFor } from '@angular/common';
 export class AppComponent {
   title = 'my-portfolio';
 
+  posts = [
+    { title: 'Introduction to Angular', link: '/blog/angular-intro' },
+    { title: 'Using RxJS in Angular', link: '/blog/rxjs-angular' },
+    { title: 'Deploying with Netlify', link: '/blog/deploy-netlify' }
+  ];
+  
+  markdownContent = `
+  ### Blog Posts
+  
+  - [Introduction to Angular](/blog/angular-intro)
+  - [Using RxJS in Angular](/blog/rxjs-angular)
+  - [Deploying with Netlify](/blog/deploy-netlify)
+  `;
 
-  // skills = [
-  //   { name: 'HTML', value: 5 },
-  //   { name: 'CSS', value: 5 },
-  //   { name: 'JavaScript', value: 5 },
-  //   { name: 'Angular', value: 5 },
-  //   { name: 'Node.js', value: 5 },
-  //   { name: 'Express.js', value: 4 },
-  //   { name: 'MySQL', value: 3 },
-  //   { name: '.NET', value: 3 },
-  //   { name: 'Python', value: 4 },
-  //   { name: 'Golang', value: 3 },
-  //   { name: 'Flutter', value: 3 },
-  //   { name: 'Leadership', value: 4 },
-  //   { name: 'Teamwork', value: 5 },
-  //   { name: 'Communication (Improving)', value: 3 }
-  // ];
-
-  // skills = [
-  //   { name: 'HTML', value: 5, icon: 'fa-brands fa-html5' },
-  //   { name: 'CSS', value: 5, icon: 'fa-brands fa-css3-alt' },
-  //   { name: 'JavaScript', value: 5, icon: 'fa-brands fa-js' },
-  //   { name: 'Angular', value: 5, icon: 'fa-brands fa-angular' },
-  //   { name: 'Node.js', value: 5, icon: 'fa-brands fa-node-js' },
-  //   { name: 'Express.js', value: 4, icon: 'fa-solid fa-server' },
-  //   { name: 'MySQL', value: 3, icon: 'fa-solid fa-database' },
-  //   { name: '.NET', value: 3, icon: 'fa-brands fa-microsoft' },
-  //   { name: 'Python', value: 4, icon: 'fa-brands fa-python' },
-  //   { name: 'Golang', value: 3, icon: 'fa-solid fa-code' },
-  //   { name: 'Flutter', value: 3, icon: 'fa-brands fa-google' }, // or custom SVG
-  //   { name: 'Leadership', value: 4, icon: 'fa-solid fa-user-tie' },
-  //   { name: 'Teamwork', value: 5, icon: 'fa-solid fa-people-group' },
-  //   { name: 'Communication (Improving)', value: 3, icon: 'fa-solid fa-comments' }
-  // ];
-
-
+  blogs = [
+    { title: 'Intro to Angular', slug: 'intro-to-angular' },
+    { title: 'Mastering RxJS', slug: 'mastering-rxjs' },
+    { title: 'Understanding NgModules', slug: 'understanding-ngmodules' },
+  ];
 
   skills = [
     { name: 'HTML', value: 5, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
