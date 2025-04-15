@@ -6,7 +6,7 @@
       <a mat-list-item (click)="scrollTo('experience')">Experience</a>
       <a mat-list-item (click)="scrollTo('projects')">Projects</a>
       <a mat-list-item (click)="scrollTo('education')">Education</a>
-      <a href="https://techblogs.axionix.in/" target="_blank" rel="noopener">Blog</a>
+      <a mat-list-item href="https://techblogs.axionix.in/" target="_blank" rel="noopener">Blog</a>
       <a mat-list-item (click)="scrollTo('certifications')">Certifications</a>
       <a mat-list-item (click)="scrollTo('contact')">Contact</a>
     </mat-nav-list>
@@ -29,7 +29,8 @@
         <button mat-button (click)="scrollTo('experience')">Experience</button>
         <button mat-button (click)="scrollTo('projects')">Projects</button>
         <button mat-button (click)="scrollTo('education')">Education</button>
-        <a mat-button href="https://techblogs.axionix.in/" target="_blank" rel="noopener">Blog</a>
+        <button mat-button (click)="scrollTo('Blog')" >Blog</button>
+        <!-- <a mat-button href="https://techblogs.axionix.in/" target="_blank" rel="noopener">Blog</a> -->
         <button mat-button (click)="scrollTo('certifications')">Certifications</button>
         <button mat-button (click)="scrollTo('contact')">Contact</button>
       </nav>
@@ -88,56 +89,13 @@
       </section>
 
 
-
-      <!-- Skills Section -->
       <!-- <section id="skills" class="section">
-        <mat-card class="section-card">
-          <mat-card-header>
-            <mat-card-title>Skills</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div *ngFor="let skill of skills" class="skill-item">
-              <label>{{ skill.name }}</label>
-              <input type="range"
-                     min="0"
-                     max="10"
-                     step="1"
-                     [(ngModel)]="skill.value" />
-              <span>{{ skill.value }}</span>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </section> -->
-
-      <!-- <section id="skills" class="section">
-        <mat-card class="section-card">
-          <mat-card-header>
-            <mat-card-title>Skills</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div *ngFor="let skill of skills" class="skill-item">
-              <label>{{ skill.name }}</label>
-              <input type="range"
-                     class="custom-slider"
-                     min="0"
-                     max="10"
-                     step="1"
-                     [(ngModel)]="skill.value" />
-              <span>{{ skill.value }}</span>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </section> -->
-
-
-      <section id="skills" class="section">
         <mat-card class="section-card">
           <mat-card-header>
             <mat-card-title>Skills</mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <div *ngFor="let skill of skills" class="skill-row">
-              <!-- <i [class]="skill.icon"></i> -->
               <img [src]="skill.icon" [alt]="skill.name" width="32" height="32" />
               <span class="skill-label">{{ skill.name }}</span>
               <input type="range"
@@ -150,9 +108,42 @@
             </div>
           </mat-card-content>
         </mat-card>
+      </section> -->
+
+      <section id="skills" class="section">
+        <mat-card class="section-card">
+          <mat-card-header>
+            <mat-card-title>Skills</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="skills-container">
+              <div *ngFor="let skill of skills" class=" skill-row" >
+                <div class="skill-label">
+                  <img [src]="skill.icon" [alt]="skill.name" class="skill-icon" (error)="onIconError($event)" />
+                  <span class="skill-name">{{skill.name}}</span>
+                </div>
+                <mat-progress-bar
+                  mode="determinate"
+                  color="accent"
+                  [value]="skill.value * 10"
+                  class="skill-progress"
+                ></mat-progress-bar>
+                <span class="skill-value">{{ skill.value }}/10</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </section>
+
+
+      <div>
+        
+      </div>
+
+
+
       
-      <!-- Experience Section -->
+      <!--</section>-- Experience Section -->
       <section id="experience" class="section">
         <mat-card class="section-card">
           <mat-card-header>
@@ -163,7 +154,7 @@
             <p><strong>Duration:</strong> November 9, 2020 – Present</p>
             <ul>
               <li>Developed and maintained enterprise applications using Angular, Node.js, and MySQL.</li>
-              <li>Optimized API performance by reducing response time by 30%, improving system efficiency.</li>
+              <li>Optimized API performance by redmat-labelng response time by 30%, improving system efficiency.</li>
               <li>Led and mentored junior developers, ensuring best coding practices and knowledge sharing.</li>
               <li>Integrated automation scripts to improve deployment processes, reducing manual effort.</li>
               <li>Worked on projects using .NET, Python, and Golang.</li>
@@ -171,6 +162,43 @@
           </mat-card-content>
         </mat-card>
       </section>
+
+
+      <section id="roles" class="section">
+        <mat-card class="section-card">
+          <mat-card-header>
+            <mat-card-title> 💼 Roles & Responsibilities</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <h3>Full Stack Developer (MEAN)</h3>
+            <p><em>4+ years of experience | Angular + Node.js + Express</em></p>
+            <ul>
+              <li>
+                Developer and maintained scalable web applications using the <strong>MEAN Stack</strong>, focusing on clean code, reuability components, and performance optimization.
+              </li>
+              <li>
+                Built and deployed <strong>Responsive user interface</strong> with Angular, following best practices for state management and component architecture.
+              </li>
+              <li>
+                Designed and implemented <strong>RESTful APIs</strong> using Node.js and Express, ensuring security, maintainability, and efficient data flow between between frontend and backend.
+              </li>
+              <li>
+                Integrated real-time features, third-party APIs, and dynamic form generators for <strong>Custom Dashboards, blog editors, appointment systems, and rule engines</strong>
+              </li>
+              <li>
+                Collaborated in agile enviromnents, participating in daily standups, sprint planning, and client meetings to gather requirements and provide updates.
+              </li>
+              <li>
+                Experienced in <strong>Debugging and testing</strong> with chrome dev tools, postman, and console-based rapid development tools.
+              </li>
+              <li>
+                Deployed and maintained projects using <strong>Netlify, Vercel, Render</strong> for frontend and <strong>Heroku, AWS</strong> for backend, ensuring high availability and performance.
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </section>
+
 
       <!-- Projects Section -->
       <section id="projects" class="section">

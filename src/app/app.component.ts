@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -9,7 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { DOCUMENT, NgFor } from '@angular/common';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -29,7 +30,7 @@ import { NgFor } from '@angular/common';
     NgFor,
     ReactiveFormsModule,
     RouterModule,
-
+    MatProgressBarModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -42,6 +43,13 @@ export class AppComponent {
     { title: 'Using RxJS in Angular', link: '/blog/rxjs-angular' },
     { title: 'Deploying with Netlify', link: '/blog/deploy-netlify' }
   ];
+
+
+  constructor(
+    @Inject(DOCUMENT) private document: Document
+  ){
+
+  }
   
   markdownContent = `
   ### Blog Posts
@@ -81,7 +89,16 @@ export class AppComponent {
   }
 
   scrollTo(section: string) {
+
+    if(section === 'Blog'){
+      this.document.location.href = 'https://techblogs.axionix.in/';
+    }
+
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
     this.showSidenav = false;
+  }
+
+  onIconError(event: any) {
+    event.target.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'; // Default icon URL
   }
 }
