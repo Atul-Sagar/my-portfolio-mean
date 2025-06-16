@@ -29,7 +29,7 @@
         <button mat-button (click)="scrollTo('experience')">Experience</button>
         <button mat-button (click)="scrollTo('projects')">Projects</button>
         <button mat-button (click)="scrollTo('education')">Education</button>
-        <button mat-button (click)="scrollTo('Blog')" >Blog</button>
+        <button mat-button (click)="scrollTo('Blog')">Blog</button>
         <!-- <a mat-button href="https://techblogs.axionix.in/" target="_blank" rel="noopener">Blog</a> -->
         <button mat-button (click)="scrollTo('certifications')">Certifications</button>
         <button mat-button (click)="scrollTo('contact')">Contact</button>
@@ -110,7 +110,7 @@
         </mat-card>
       </section> -->
 
-      <section id="skills" class="section">
+      <!-- <section id="skills" class="section">
         <mat-card class="section-card">
           <mat-card-header>
             <mat-card-title>Skills</mat-card-title>
@@ -133,16 +133,39 @@
             </div>
           </mat-card-content>
         </mat-card>
+      </section> -->
+
+
+      <section id="skills" class="section">
+        <mat-card class="section-card"  >
+          <mat-card-header>
+            <mat-card-title>Skills</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="skills-grid">
+              <mat-card *ngFor="let skill of skills; let i = index" class="skill-card" [@fadeInUp]="visibleSkills[i] ? 'visible' : 'hidden'">
+                <div class="skill-header">
+                  <img [src]="skill.icon" [alt]="skill.name" class="skill-icon" (error)="onIconError($event)" />
+                  <span class="skill-name">{{ skill.name }}</span>
+                </div>
+                <mat-progress-bar mode="determinate" color="accent" [value]="skill.value * 10"
+                  class="skill-progress"></mat-progress-bar>
+                <span class="skill-score">{{ skill.value }}/10</span>
+              </mat-card>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </section>
 
 
+
       <div>
-        
+
       </div>
 
 
 
-      
+
       <!--</section>-- Experience Section -->
       <section id="experience" class="section">
         <mat-card class="section-card">
@@ -152,12 +175,55 @@
           <mat-card-content>
             <h3>SBI Life Insurance Company Ltd. – Senior Associate (R&D Developer)</h3>
             <p><strong>Duration:</strong> November 9, 2020 – Present</p>
-            <ul>
+            <!-- <ul>
               <li>Developed and maintained enterprise applications using Angular, Node.js, and MySQL.</li>
               <li>Optimized API performance by redmat-labelng response time by 30%, improving system efficiency.</li>
               <li>Led and mentored junior developers, ensuring best coding practices and knowledge sharing.</li>
               <li>Integrated automation scripts to improve deployment processes, reducing manual effort.</li>
               <li>Worked on projects using .NET, Python, and Golang.</li>
+            </ul> -->
+
+            <ul>
+              <li>
+                Spearheaded the development of enterprise-grade web applications using Angular, Node.js, MySQL, and
+                MongoDB, ensuring high scalability and maintainability.
+              </li>
+              <li>
+                Re-architected legacy monolithic applications into modular microservices using Node.js and Express,
+                leading to a 40% improvement in deployment speed and system scalability.
+              </li>
+              <li>
+                Optimized backend APIs by implementing caching strategies, asynchronous processing, and query
+                optimization, reducing average response time by 30%.
+              </li>
+              <li>
+                Collaborated closely with UI/UX teams to deliver pixel-perfect, responsive interfaces, improving user
+                engagement and satisfaction metrics.
+              </li>
+              <li>
+                Mentored and trained junior developers in Angular, Git workflows, and design patterns, fostering a
+                culture of continuous improvement and code quality.
+              </li>
+              <li>
+                Developed custom NPM packages and internal reusable libraries to accelerate development cycles and
+                maintain coding consistency.
+              </li>
+              <li>
+                Automated CI/CD workflows using Jenkins and GitHub Actions, minimizing manual deployment efforts and
+                enabling seamless staging-to-production rollouts.
+              </li>
+              <li>
+                Conducted regular code reviews, performance audits, and security assessments to ensure adherence to best
+                practices and compliance standards.
+              </li>
+              <li>
+                Played a key role in cross-functional R&D initiatives exploring integrations with emerging tech like AWS
+                Lambda, Chatbots, and OCR pipelines.
+              </li>
+              <li>
+                Contributed to multi-technology projects using .NET, Python (FastAPI), and Golang for internal tooling
+                and research prototypes.
+              </li>
             </ul>
           </mat-card-content>
         </mat-card>
@@ -172,7 +238,7 @@
           <mat-card-content>
             <h3>Full Stack Developer (MEAN)</h3>
             <p><em>4+ years of experience | Angular + Node.js + Express</em></p>
-            <ul>
+            <!-- <ul>
               <li>
                 Developer and maintained scalable web applications using the <strong>MEAN Stack</strong>, focusing on clean code, reuability components, and performance optimization.
               </li>
@@ -193,6 +259,53 @@
               </li>
               <li>
                 Deployed and maintained projects using <strong>Netlify, Vercel, Render</strong> for frontend and <strong>Heroku, AWS</strong> for backend, ensuring high availability and performance.
+              </li>
+            </ul> -->
+
+            <ul>
+              <li>
+                Architected and maintained full-stack applications using the MEAN stack with an emphasis on modular
+                code, test-driven development (TDD), and clean architecture.
+              </li>
+              <li>
+                Developed highly responsive and reusable front-end components in Angular, leveraging RxJS, Angular
+                Material, NgRx, and dynamic forms.
+              </li>
+              <li>
+                Designed robust RESTful and GraphQL APIs using Node.js and Express with role-based access control, JWT
+                authentication, and API versioning.
+              </li>
+              <li>
+                Led initiatives to integrate third-party services like Razorpay, Twilio, Firebase, AWS S3, and Google
+                Maps into web applications.
+              </li>
+              <li>
+                Built advanced form builders, blog engines, appointment schedulers, and workflow-based rule engines to
+                support business-specific logic.
+              </li>
+              <li>
+                Automated test suites using Jasmine, Karma, Mocha, and integrated them into CI/CD pipelines for early
+                bug detection and quality assurance.
+              </li>
+              <li>
+                Regularly engaged in Agile/Scrum rituals — sprint planning, reviews, retrospectives, and pair
+                programming — ensuring clear visibility and delivery alignment.
+              </li>
+              <li>
+                Configured and deployed applications on platforms like Netlify, Vercel (frontend) and Heroku, Render,
+                AWS EC2/Lambda (backend) with Docker and PM2 for production stability.
+              </li>
+              <li>
+                Implemented application monitoring using New Relic, ELK Stack, and custom logging solutions for
+                proactive issue resolution.
+              </li>
+              <li>
+                Hands-on experience with database design, indexing strategies, and data migration across SQL (MySQL,
+                PostgreSQL) and NoSQL (MongoDB) systems.
+              </li>
+              <li>
+                Contributed to system documentation, architecture diagrams, onboarding guides, and technical blogs to
+                improve team efficiency and knowledge retention.
               </li>
             </ul>
           </mat-card-content>

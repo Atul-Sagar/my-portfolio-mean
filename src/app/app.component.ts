@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { AfterViewInit, Component, Inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -11,6 +11,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DOCUMENT, NgFor } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { trigger, transition, style, state, animate } from '@angular/animations';
 
 
 
@@ -33,9 +34,16 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatProgressBarModule,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  animations: [
+    trigger('fadeInUp', [
+      state('hidden', style({ opacity: 0, transform: 'translateY(20px)' })),
+      state('visible', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition('hidden => visible', animate('600ms ease-out'))
+    ])
+  ]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'my-portfolio';
 
   posts = [
@@ -50,6 +58,8 @@ export class AppComponent {
   ){
 
   }
+
+  visibleSkills: boolean[] = [];
   
   markdownContent = `
   ### Blog Posts
@@ -83,6 +93,26 @@ export class AppComponent {
   ];
 
   showSidenav = false;
+
+
+  ngAfterViewInit() {
+    const items = document.querySelectorAll('.skill-card');
+    items.forEach((el, index) => {
+      this.visibleSkills[index] = false;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            this.visibleSkills[index] = true;
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.2 }
+      );
+
+      observer.observe(el);
+    });
+  }
 
   toggleSidenav() {
     this.showSidenav = !this.showSidenav;
