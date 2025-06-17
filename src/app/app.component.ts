@@ -28,7 +28,6 @@ import { trigger, transition, style, state, animate } from '@angular/animations'
     MatListModule,
     MatSliderModule,
     FormsModule,
-    NgFor,
     ReactiveFormsModule,
     RouterModule,
     MatProgressBarModule,

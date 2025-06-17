@@ -262,7 +262,7 @@ $text-color: #333;
 .hero {
   position: relative;
   height: 92vh;
-  background: url('./../assets/ChatGPT-hero.webp') center/cover no-repeat;
+  background: url("./../assets/ChatGPT-hero.webp") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -502,7 +502,6 @@ $text-color: #333;
     }
   }
 
-  
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -540,7 +539,6 @@ footer {
   color: $text-color;
 }
 
-
 .social-link {
   display: inline-flex;
   align-items: center;
@@ -553,4 +551,53 @@ footer {
 .social-icon {
   fill: white; /* match your design */
   flex-shrink: 0;
+}
+
+// Education
+
+.education-entry {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-left: 4px solid #2196f3;
+  border-radius: 6px;
+}
+
+.education-entry h3 {
+  margin: 0;
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+.education-entry p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: black;
+}
+
+.contact-card {
+  background-color: #212121;
+  color: #fff;
+
+  a {
+    color: #90caf9;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  mat-icon {
+    color: #64b5f6;
+  }
 }
