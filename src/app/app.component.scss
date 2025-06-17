@@ -355,6 +355,15 @@ $text-color: #333;
   gap: 15px;
 }
 
+.hero-badges {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  gap: 15px;
+}
+
 .hero-socials a img {
   width: 24px;
   height: 24px;
