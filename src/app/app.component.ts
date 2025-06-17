@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DOCUMENT, NgFor } from '@angular/common';
+import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { trigger, transition, style, state, animate } from '@angular/animations';
 
@@ -32,6 +32,7 @@ import { trigger, transition, style, state, animate } from '@angular/animations'
     ReactiveFormsModule,
     RouterModule,
     MatProgressBarModule,
+    NgIf,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -95,6 +96,86 @@ export class AppComponent implements AfterViewInit {
   showSidenav = false;
 
 
+
+  projects = [
+    {
+      title: 'Smart Care – SBI Life Insurance',
+      description: `A customer-focused mobile app for SBI Life Insurance that enables real-time insurance claim tracking,
+      document uploads, policy status viewing, and branch/service desk access.`,
+      highlights: [
+        'Built with Angular, integrated with RESTful APIs and secure auth flows',
+        'Handled real-time updates for claim status and notifications',
+        'Collaborated closely with QA and backend to ensure seamless policyholder experience',
+      ],
+      image: '', // optional local path or URL
+      link: ''
+    },
+    {
+      title: 'M-Connect – SBI Life Insurance',
+      description: `An internal enterprise platform built for SBI Life Insurance to enhance agent productivity and
+      streamline customer engagement through centralized policy management and task tracking.`,
+      highlights: [
+        'Developed modules for lead tracking, policy servicing, and notifications',
+        'Integrated Angular front-end with secured APIs and role-based access control',
+        'Improved system performance by optimizing API interaction and lazy loading',
+      ],
+      image: '',
+      link: ''
+    },
+    {
+      title: 'CLIP – Claims Investigation Portal',
+      description: `An internal web-based portal for SBI Life Insurance to manage and streamline the claims
+      investigation process, improving transparency, turnaround time, and case tracking.`,
+      highlights: [
+        'Developed Angular modules for case assignment, status tracking, and document management',
+        'Integrated authentication, investigator dashboards, and role-based workflows',
+        'Worked closely with backend and QA teams to ensure reliable end-to-end functionality',
+      ],
+      image: '',
+      link: ''
+    },
+    {
+      title: 'My Personal Portfolio',
+      description: `A fully responsive personal portfolio website built using Angular and Angular Material,
+      showcasing my projects, experience, and blog. Designed with performance, accessibility, and smooth animations in mind.`,
+      highlights: [
+        'Built with Angular, deployed via Netlify with custom domain',
+        'Features smooth scroll navigation, mobile-first design, and theme customization',
+        'SEO-optimized and integrated with GitHub and blogs hosted on a subdomain',
+      ],
+      image: '',
+      link: ''
+      // link: 'https://portfolio.axionix.in'
+    },
+    {
+      title: 'Interviews Cracked',
+      description: `A curated interview preparation platform built to help developers crack technical interviews with
+      real-world questions, coding exercises, and structured topic-wise preparation.`,
+      highlights: [
+        'Built using Angular for frontend and Node.js for backend APIs',
+        'Features question tagging, difficulty filters, bookmarks, and answer discussions',
+        'Supports user authentication, personalized dashboards, and progress tracking',
+      ],
+      image: '',
+      link: ''
+      // link: 'https://axionix.in'
+    },
+    {
+      title: 'Product Configurator',
+      description: `A dynamic product configuration engine built for customizing insurance products based on user inputs,
+      business rules, and eligibility conditions — generating real-time premium calculations and JSON outputs.`,
+      highlights: [
+        'Developed using Angular Reactive Forms with nested conditions and dynamic fields',
+        'Integrated with business rule engine to support real-time decision logic',
+        'Exported user configurations as styled JSON, suitable for APIs or documentation',
+      ],
+      image: '',
+      link: ''
+    }
+  ];
+
+
+
   ngAfterViewInit() {
     const items = document.querySelectorAll('.skill-card');
     items.forEach((el, index) => {
@@ -126,7 +207,7 @@ export class AppComponent implements AfterViewInit {
 
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
     this.showSidenav = false;
-    
+
     // const element = this.document.getElementById(section);
     // if (element) {
     //   const headerOffset = 70; // Adjust this based on your actual header height
