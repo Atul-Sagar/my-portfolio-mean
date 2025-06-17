@@ -98,18 +98,18 @@ export class AppComponent implements AfterViewInit {
 
 
   projects = [
-    {
-      title: 'Smart Care – SBI Life Insurance',
-      description: `A customer-focused mobile app for SBI Life Insurance that enables real-time insurance claim tracking,
-      document uploads, policy status viewing, and branch/service desk access.`,
-      highlights: [
-        'Built with Angular, integrated with RESTful APIs and secure auth flows',
-        'Handled real-time updates for claim status and notifications',
-        'Collaborated closely with QA and backend to ensure seamless policyholder experience',
-      ],
-      image: '', // optional local path or URL
-      link: ''
-    },
+    // {
+    //   title: 'Smart Care – SBI Life Insurance',
+    //   description: `A customer-focused mobile app for SBI Life Insurance that enables real-time insurance claim tracking,
+    //   document uploads, policy status viewing, and branch/service desk access.`,
+    //   highlights: [
+    //     'Built with Angular, integrated with RESTful APIs and secure auth flows',
+    //     'Handled real-time updates for claim status and notifications',
+    //     'Collaborated closely with QA and backend to ensure seamless policyholder experience',
+    //   ],
+    //   image: '', // optional local path or URL
+    //   link: ''
+    // },
     {
       title: 'M-Connect – SBI Life Insurance',
       description: `An internal enterprise platform built for SBI Life Insurance to enhance agent productivity and
