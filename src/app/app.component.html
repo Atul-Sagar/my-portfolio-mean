@@ -2,11 +2,13 @@
   <mat-sidenav #drawer mode="over" [opened]="showSidenav" (closedStart)="showSidenav = false">
     <mat-nav-list>
       <a mat-list-item (click)="scrollTo('about')">About</a>
+      <a mat-list-item (click)="scrollTo('expertise')">My Expertise</a>
       <a mat-list-item (click)="scrollTo('skills')">Skills</a>
       <a mat-list-item (click)="scrollTo('experience')">Experience</a>
+      <a mat-list-item (click)="scrollTo('roles')">Roles and Responsibilities</a>
       <a mat-list-item (click)="scrollTo('projects')">Projects</a>
       <a mat-list-item (click)="scrollTo('education')">Education</a>
-      <a mat-list-item href="https://techblogs.axionix.in/" target="_blank" rel="noopener">Blog</a>
+      <!-- <a mat-list-item href="https://techblogs.axionix.in/" target="_blank" rel="noopener">Blog</a> -->
       <a mat-list-item (click)="scrollTo('certifications')">Certifications</a>
       <a mat-list-item (click)="scrollTo('contact')">Contact</a>
     </mat-nav-list>
@@ -25,11 +27,13 @@
       <span class="spacer"></span>
       <nav class="desktop-nav">
         <button mat-button (click)="scrollTo('about')">About</button>
+        <button mat-button (click)="scrollTo('expertise')">My Expertise</button>
         <button mat-button (click)="scrollTo('skills')">Skills</button>
         <button mat-button (click)="scrollTo('experience')">Experience</button>
+        <button mat-button (click)="scrollTo('roles')">Roles and Responsibilities</button>
         <button mat-button (click)="scrollTo('projects')">Projects</button>
         <button mat-button (click)="scrollTo('education')">Education</button>
-        <button mat-button (click)="scrollTo('Blog')">Blog</button>
+        <!-- <button mat-button (click)="scrollTo('Blog')">Blog</button> -->
         <button mat-button (click)="scrollTo('certifications')">Certifications</button>
         <button mat-button (click)="scrollTo('contact')">Contact</button>
       </nav>
