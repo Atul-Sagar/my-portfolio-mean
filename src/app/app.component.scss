@@ -575,29 +575,34 @@ footer {
   color: black;
 }
 
-.contact-card {
-  background-color: #212121;
-  color: #fff;
+.contact-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
 
-  a {
-    color: #90caf9;
-    text-decoration: none;
-    font-weight: 500;
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #64b5f6;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+.social-link:hover {
+  color: #42a5f5;
+}
 
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-  }
+.social-icon {
+  fill: currentColor;
+}
 
-  mat-icon {
-    color: #64b5f6;
-  }
+
+.contact-item{
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
 }
