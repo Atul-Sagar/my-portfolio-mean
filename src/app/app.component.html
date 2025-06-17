@@ -356,9 +356,8 @@
                   <ul class="project-highlights">
                     <li *ngFor="let point of project.highlights">{{ point }}</li>
                   </ul>
-                  <a *ngIf="project.link" [href]="project.link" target="_blank">
-                    <img src="https://placehold.co/300x200?text=Visit+Project" [alt]="'Visit ' + project.title"
-                      class="project-image">
+                  <a class="project-link" *ngIf="project.link" [href]="project.link" target="_blank">
+                    <p>Visit {{project.title}}</p>
                   </a>
                 </mat-card-content>
               </mat-card>

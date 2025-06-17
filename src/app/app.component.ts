@@ -111,41 +111,52 @@ export class AppComponent implements AfterViewInit {
     //   link: ''
     // },
     {
-      title: 'M-Connect – SBI Life Insurance',
+      title: 'M-Connect',
       description: `An internal enterprise platform built for SBI Life Insurance to enhance agent productivity and
-      streamline customer engagement through centralized policy management and task tracking.`,
+      streamline the new business process.`,
       highlights: [
-        'Developed modules for lead tracking, policy servicing, and notifications',
+        'Developed using a combination of template driven, Reactive and Dynamic forms, to suit the application needs',
         'Integrated Angular front-end with secured APIs and role-based access control',
+        'Integrated Indexed DB and cache storage for offline functionality',
         'Improved system performance by optimizing API interaction and lazy loading',
+        'UI was designed with the help of Angular Material giving it a sleek modern look',
+        'M-Connect consists of a number of forms ranging from Need Analysis, Benefit Illustration, Personal Details, Health Details, ACR meant for collecting information',
+        'Ekyc, Ckyc, service is also integrated for customer convinence',
+        'inApp document upload and verification done through third-party apis',
+        'PWA making the same code base installable on multiple platforms'
       ],
       image: '',
-      link: ''
+      link: 'https://mconnect.sbilife.co.in'
     },
     {
-      title: 'CLIP – Claims Investigation Portal',
+      title: 'CLIP [Claims Investigation Portal]',
       description: `An internal web-based portal for SBI Life Insurance to manage and streamline the claims
       investigation process, improving transparency, turnaround time, and case tracking.`,
       highlights: [
-        'Developed Angular modules for case assignment, status tracking, and document management',
+        'Developed using HTML, CSS and Pure JS',
         'Integrated authentication, investigator dashboards, and role-based workflows',
         'Worked closely with backend and QA teams to ensure reliable end-to-end functionality',
+        'Covers 5 types of investigations',
+        'Document upload',
+        'State Management using Cookies and Session Storage',
+        'REST API with JWT token authentication'
       ],
       image: '',
-      link: ''
+      link: 'https://clip.sbilife.co.in'
     },
     {
       title: 'My Personal Portfolio',
       description: `A fully responsive personal portfolio website built using Angular and Angular Material,
       showcasing my projects, experience, and blog. Designed with performance, accessibility, and smooth animations in mind.`,
       highlights: [
-        'Built with Angular, deployed via Netlify with custom domain',
-        'Features smooth scroll navigation, mobile-first design, and theme customization',
+        'Built with Angular, deployed via Netlify with custom domain from GoDaddy',
+        'Features smooth scroll navigation, mobile-first design, and Sleek modern design',
         'SEO-optimized and integrated with GitHub and blogs hosted on a subdomain',
+        'Fully optimised with webp images for faster loading'
       ],
       image: '',
-      link: ''
-      // link: 'https://portfolio.axionix.in'
+      // link: ''
+      link: 'https://portfolio.axionix.in'
     },
     {
       title: 'Interviews Cracked',
@@ -157,17 +168,17 @@ export class AppComponent implements AfterViewInit {
         'Supports user authentication, personalized dashboards, and progress tracking',
       ],
       image: '',
-      link: ''
-      // link: 'https://axionix.in'
+      // link: ''
+      link: 'https://axionix.in'
     },
     {
       title: 'Product Configurator',
-      description: `A dynamic product configuration engine built for customizing insurance products based on user inputs,
-      business rules, and eligibility conditions — generating real-time premium calculations and JSON outputs.`,
+      description: `A dynamic engine built for creating and customizing insurance products based on user inputs,
+      business rules, and eligibility conditions — generating real-time premium calculations and JSON outputs with once click integraton with MConnect, SmartCare and Smart Advisor.`,
       highlights: [
-        'Developed using Angular Reactive Forms with nested conditions and dynamic fields',
-        'Integrated with business rule engine to support real-time decision logic',
-        'Exported user configurations as styled JSON, suitable for APIs or documentation',
+        'Developed using Angular Dynamic Reactive forms',
+        'NoCode platform for creating product APIs with the help of 4 simple forms',
+        'Integrated test platform to test the created APIs',
       ],
       image: '',
       link: ''
