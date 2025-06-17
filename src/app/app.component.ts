@@ -55,12 +55,12 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document
-  ){
+  ) {
 
   }
 
   visibleSkills: boolean[] = [];
-  
+
   markdownContent = `
   ### Blog Posts
   
@@ -120,13 +120,32 @@ export class AppComponent implements AfterViewInit {
 
   scrollTo(section: string) {
 
-    if(section === 'Blog'){
+    if (section === 'Blog') {
       this.document.location.href = 'https://techblogs.axionix.in/';
     }
 
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
     this.showSidenav = false;
+    
+    // const element = this.document.getElementById(section);
+    // if (element) {
+    //   const headerOffset = 70; // Adjust this based on your actual header height
+    //   const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    //   const offsetPosition = elementPosition - headerOffset;
+
+    //   window.scrollTo({
+    //     top: offsetPosition,
+    //     behavior: 'smooth'
+    //   });
+    // }
+
+    // this.showSidenav = false;
+
   }
+
+
+
+
 
   onIconError(event: any) {
     event.target.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'; // Default icon URL
