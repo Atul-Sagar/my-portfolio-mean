@@ -90,7 +90,7 @@ export class AppComponent implements AfterViewInit {
     { name: 'Flutter', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
     { name: 'Leadership', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
     { name: 'Teamwork', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png' },
-    { name: 'Communication (Improving)', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' }
+    { name: 'Communication ', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' }
   ];
 
   showSidenav = false;
