@@ -172,7 +172,7 @@ export class AppComponent implements AfterViewInit {
       link: 'https://axionix.in'
     },
     {
-      title: 'Product Configurator',
+      title: 'Insurance Product Configurator',
       description: `A dynamic engine built for creating and customizing insurance products based on user inputs,
       business rules, and eligibility conditions — generating real-time premium calculations and JSON outputs with once click integraton with MConnect, SmartCare and Smart Advisor.`,
       highlights: [
