@@ -134,6 +134,14 @@ $text-color: #333;
   margin-bottom: 1rem;
   color: #dddddd;
 }
+.hero-title-main{
+  color: $accent-color;
+  font-weight: bold;
+}
+
+.hero-title-sub{
+  color: "";
+}
 
 .hero-tagline {
   font-size: 1.1rem;
@@ -141,6 +149,7 @@ $text-color: #333;
   font-weight: 300;
   margin-bottom: 1.5rem;
   color: #cccccc;
+  text-decoration: underline;
 }
 
 .resume-button .btn-download {
