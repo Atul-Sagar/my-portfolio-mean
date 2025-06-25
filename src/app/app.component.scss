@@ -462,3 +462,59 @@ $text-color: #333;
   color: white;
   font-size: 1rem;
 }
+
+
+
+
+// core values
+
+.core-values-section {
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+}
+
+.core-values-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.core-values-section ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+}
+
+.core-values-section li {
+  margin-bottom: 0.75rem;
+}
+
+
+// what am i looking for
+
+.next-opportunity-section {
+  padding: 4rem 1rem;
+  background-color: #f5f5f5;
+}
+
+.next-opportunity-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.next-opportunity-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.next-opportunity-section li {
+  margin-bottom: 0.5rem;
+}
+
+
+.getintouch{
+  background-color: $accent-color;
+  padding: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+}
