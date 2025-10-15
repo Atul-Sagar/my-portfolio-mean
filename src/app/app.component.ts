@@ -76,22 +76,72 @@ export class AppComponent implements AfterViewInit {
     { title: 'Understanding NgModules', slug: 'understanding-ngmodules' },
   ];
 
+  // skills = [
+  //   { name: 'HTML', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  //   { name: 'CSS', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  //   { name: 'JavaScript', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  //   { name: 'Angular', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+  //   { name: 'Node.js', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  //   { name: 'Express.js', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+  //   { name: 'MySQL', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  //   // { name: '.NET', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
+  //   { name: 'Python', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  //   // { name: 'Golang', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg' },
+  //   { name: 'Flutter', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+  //   { name: 'Leadership', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
+  //   { name: 'Teamwork', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png' },
+  //   { name: 'Communication ', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' }
+  // ];
+
+  // skills = [
+  //   { name: 'HTML', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  //   { name: 'CSS', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  //   { name: 'JavaScript', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  //   { name: 'Angular', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+  //   { name: 'Node.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  //   { name: 'Express.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+  //   { name: 'MySQL', value: 5, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  //   { name: 'Python', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  //   { name: 'Flutter', value: 6, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+  //   { name: 'Leadership', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
+  //   { name: 'Teamwork', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png' },
+  //   { name: 'Communication ', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' }
+  // ];
+
   skills = [
+    // Core MEAN Stack
     { name: 'HTML', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-    { name: 'CSS', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-    { name: 'JavaScript', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { name: 'Angular', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
-    { name: 'Node.js', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'Express.js', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-    { name: 'MySQL', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-    // { name: '.NET', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
+    { name: 'CSS', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'JavaScript', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'Angular', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+    { name: 'Node.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Express.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+
+    // Databases & Backend
+    { name: 'MongoDB', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+    { name: 'MySQL', value: 6, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'RESTful APIs', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/919/919836.png' },
+
+    // Other Technical Skills
     { name: 'Python', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    // { name: 'Golang', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg' },
-    { name: 'Flutter', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
-    { name: 'Leadership', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
+    // { name: 'Flutter', value: 6, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+    { name: 'Git & GitHub', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+    // { name: 'CI/CD', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/4605/4605586.png' },
+
+    // Leadership & Soft Skills
+    { name: 'Team Leadership', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
     { name: 'Teamwork', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png' },
-    { name: 'Communication ', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' }
+    { name: 'Communication', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' },
+    { name: 'Mentoring', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/428/428740.png' },
+
+    // Project Management / Process
+    // { name: 'Agile & Scrum', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828899.png' },
+    { name: 'Project Planning', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/1484/1484861.png' },
+    { name: 'Code Review', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/845/845646.png' },
+    { name: 'Problem Solving', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/2910/2910764.png' }
   ];
+
+
 
   showSidenav = false;
 
