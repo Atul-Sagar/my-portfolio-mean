@@ -137,7 +137,8 @@
                     I thrive in collaborative teams, value clear communication, and enjoy mentoring and learning from
                     peers. For me, development is equal parts engineering and craftsmanship.
                   </p>
-                  <a href="./../assets/Atul_Sagar_MEAN_Stack_Resume.pdf" download class="download-button btn btn-primary">📄 Download
+                  <a href="./../assets/Atul_Sagar_MEAN_Stack_Resume.pdf" download
+                    class="download-button btn btn-primary">📄 Download
                     Resume</a>
                   <a href="mailto:atulsagar55@gmail.com" class="download-button btn btn-outline">📬 Contact Me</a>
                 </div>
@@ -483,17 +484,20 @@
           <mat-card-content>
             <div class="projects-grid">
               <mat-card class="project-card" *ngFor="let project of projects">
-                <img *ngIf="project.image" mat-card-image [src]="project.image" [alt]="project.title + ' Screenshot'">
-                <mat-card-title>{{ project.title }}</mat-card-title>
-                <mat-card-content>
-                  <p>{{ project.description }}</p>
-                  <ul class="project-highlights">
-                    <li *ngFor="let point of project.highlights">{{ point }}</li>
-                  </ul>
-                  <a class="project-link" *ngIf="project.link" [href]="project.link" target="_blank">
-                    <p>Visit {{project.title}}</p>
-                  </a>
-                </mat-card-content>
+                <div class="card-content">
+                  <img *ngIf="project.image" mat-card-image [src]="project.image" [alt]="project.title + ' Screenshot'">
+                  <mat-card-title>{{ project.title }}</mat-card-title>
+                  <mat-card-content>
+                    <p>{{ project.description }}</p>
+                    <ul class="project-highlights">
+                      <li *ngFor="let point of project.highlights">{{ point }}</li>
+                    </ul>
+                    <a class="project-link" *ngIf="project.link" [href]="project.link" target="_blank">
+                      <p>Visit {{project.title}}</p>
+                    </a>
+                  </mat-card-content>
+                </div>
+
               </mat-card>
             </div>
           </mat-card-content>

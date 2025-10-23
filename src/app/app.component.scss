@@ -419,6 +419,17 @@ $text-color: #333;
   }
 
   .project-card {
+
+    background-color: #ccc;
+    padding: 5px;
+    margin: 5px;
+
+
+    .card-content{
+      margin-left: 10px;
+      color: black;
+    }
+
     .project-image {
       width: 100%;
       height: auto;
@@ -429,6 +440,10 @@ $text-color: #333;
     mat-card-title {
       font-weight: bold;
       margin-top: 10px;
+      margin-bottom: 20px !important;
+      // text-decoration: underline;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      // color: yellowgreen;
     }
 
     mat-card-content {
