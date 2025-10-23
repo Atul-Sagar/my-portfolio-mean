@@ -12,6 +12,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { trigger, transition, style, state, animate } from '@angular/animations';
+import { MarkdownPipe } from './markdown.pipe';
 
 
 
@@ -33,6 +34,7 @@ import { trigger, transition, style, state, animate } from '@angular/animations'
     RouterModule,
     MatProgressBarModule,
     NgIf,
+    MarkdownPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -145,95 +147,96 @@ export class AppComponent implements AfterViewInit {
 
   showSidenav = false;
 
-
-
   projects = [
-    // {
-    //   title: 'Smart Care – SBI Life Insurance',
-    //   description: `A customer-focused mobile app for SBI Life Insurance that enables real-time insurance claim tracking,
-    //   document uploads, policy status viewing, and branch/service desk access.`,
-    //   highlights: [
-    //     'Built with Angular, integrated with RESTful APIs and secure auth flows',
-    //     'Handled real-time updates for claim status and notifications',
-    //     'Collaborated closely with QA and backend to ensure seamless policyholder experience',
-    //   ],
-    //   image: '', // optional local path or URL
-    //   link: ''
-    // },
     {
       title: 'M-Connect',
-      description: `An internal enterprise platform built for SBI Life Insurance to enhance agent productivity and
-      streamline the new business process.`,
+      description: `**__An internal enterprise platform built for SBI Life Insurance to enhance agent productivity and streamline the new business process.__**`,
       highlights: [
-        'Developed using a combination of template driven, Reactive and Dynamic forms, to suit the application needs',
-        'Integrated Angular front-end with secured APIs and role-based access control',
-        'Integrated Indexed DB and cache storage for offline functionality',
-        'Improved system performance by optimizing API interaction and lazy loading',
-        'UI was designed with the help of Angular Material giving it a sleek modern look',
-        'M-Connect consists of a number of forms ranging from Need Analysis, Benefit Illustration, Personal Details, Health Details, ACR meant for collecting information',
-        'Ekyc, Ckyc, service is also integrated for customer convinence',
-        'inApp document upload and verification done through third-party apis',
-        'PWA making the same code base installable on multiple platforms'
+        'Built a mix of **template-driven**, **reactive**, and **dynamic forms** to handle different workflows.',
+        'Integrated Angular front-end with **secured APIs** and **role-based access control**.',
+        'Added **offline support** using **IndexedDB** and **caching**, helping agents work even without internet.',
+        'Improved performance by optimizing **API interaction** and **lazy loading** for heavy modules.',
+        'Designed a clean, user-friendly interface using **Angular Material** for a modern look and feel.',
+        'Worked on key forms like **Need Analysis**, **Benefit Illustration**, **Personal Details**, **Health Details**, and **ACR** for smooth data collection.',
+        'Integrated **eKYC/CKYC services** for customer convenience.',
+        'Implemented in-app document upload and verification through **third-party APIs**.',
+        'Converted the application into a **PWA**, making the same codebase installable across platforms.'
       ],
       image: '',
       link: 'https://mconnect.sbilife.co.in'
     },
     {
       title: 'CLIP [Claims Investigation Portal]',
-      description: `An internal web-based portal for SBI Life Insurance to manage and streamline the claims
-      investigation process, improving transparency, turnaround time, and case tracking.`,
+      description: `**__An internal web-based portal for SBI Life Insurance to manage and streamline the claims investigation process, improving transparency, turnaround time, and case tracking.__**`,
       highlights: [
-        'Developed using HTML, CSS and Pure JS',
-        'Integrated authentication, investigator dashboards, and role-based workflows',
-        'Worked closely with backend and QA teams to ensure reliable end-to-end functionality',
-        'Covers 5 types of investigations',
-        'Document upload',
-        'State Management using Cookies and Session Storage',
-        'REST API with JWT token authentication'
+        'Developed using **HTML**, **CSS**, and **Pure JS**.',
+        'Integrated authentication, investigator dashboards, and **role-based workflows**.',
+        'Worked closely with backend and QA teams to ensure reliable end-to-end functionality.',
+        'Covers **5 types of investigations**.',
+        'Document upload and management.',
+        'State management using **Cookies** and **Session Storage**.',
+        'REST API with **JWT token authentication**.'
       ],
       image: '',
       link: 'https://clip.sbilife.co.in'
     },
     {
       title: 'My Personal Portfolio',
-      description: `A fully responsive personal portfolio website built using Angular and Angular Material,
-      showcasing my projects, experience, and blog. Designed with performance, accessibility, and smooth animations in mind.`,
+      description: `**__A fully responsive personal portfolio website built using Angular and Angular Material, showcasing my projects, experience, and blog. Designed with performance, accessibility, and smooth animations in mind.__**`,
       highlights: [
-        'Built with Angular, deployed via Netlify with custom domain from GoDaddy',
-        'Features smooth scroll navigation, mobile-first design, and Sleek modern design',
-        'SEO-optimized and integrated with GitHub and blogs hosted on a subdomain',
-        'Fully optimised with webp images for faster loading'
+        'Built with **Angular**, deployed via **Netlify** with custom domain from GoDaddy.',
+        'Features smooth scroll navigation, **mobile-first design**, and sleek modern UI.',
+        'SEO-optimized and integrated with **GitHub** and blogs hosted on a subdomain.',
+        'Fully optimized with **WebP images** for faster loading.'
       ],
       image: '',
-      // link: ''
       link: 'https://portfolio.axionix.in'
     },
     {
       title: 'Interviews Cracked',
-      description: `A curated interview preparation platform built to help developers crack technical interviews with
-      real-world questions, coding exercises, and structured topic-wise preparation.`,
+      description: `**__A curated interview preparation platform built to help developers crack technical interviews with real-world questions, coding exercises, and structured topic-wise preparation.__**`,
       highlights: [
-        'Built using Angular for frontend and Node.js for backend APIs',
-        'Features question tagging, difficulty filters, bookmarks, and answer discussions',
-        'Supports user authentication, personalized dashboards, and progress tracking',
+        'Built using **Angular** for frontend and **Node.js** for backend APIs.',
+        'Features question tagging, difficulty filters, bookmarks, and answer discussions.',
+        'Supports user authentication, personalized dashboards, and progress tracking.'
       ],
       image: '',
-      // link: ''
       link: 'https://axionix.in'
     },
     {
       title: 'Insurance Product Configurator',
-      description: `A dynamic engine built for creating and customizing insurance products based on user inputs,
-      business rules, and eligibility conditions — generating real-time premium calculations and JSON outputs with once click integraton with MConnect, SmartCare and Smart Advisor.`,
+      description: `**__A dynamic engine built for creating and customizing insurance products based on user inputs, business rules, and eligibility conditions — generating real-time premium calculations and JSON outputs with one-click integration with MConnect, SmartCare, and Smart Advisor.__**`,
       highlights: [
-        'Developed using Angular Dynamic Reactive forms',
-        'NoCode platform for creating product APIs with the help of 4 simple forms',
-        'Integrated test platform to test the created APIs',
+        'Developed using **Angular Dynamic Reactive Forms**.',
+        'No-code platform for creating product APIs with 4 simple forms.',
+        'Integrated test platform to validate created APIs.'
       ],
       image: '',
       link: ''
     }
   ];
+
+
+  roles = {
+    title: '💼 Roles & Responsibilities',
+    position: 'Full Stack Developer (MEAN)',
+    experience: '5+ years of experience | Angular + Node.js + Express',
+    responsibilities: [
+      '**Lead Full Stack Developer (MEAN)** with ownership of end-to-end application lifecycle.',
+      'Architected and maintained **modular**, **scalable** full-stack applications using the **MEAN stack**.',
+      'Developed highly responsive, reusable front-end components with **Angular**, **RxJS**, **Angular Material**, **NgRx**, and **dynamic forms**.',
+      'Designed and implemented robust **RESTful** and **GraphQL APIs** with **role-based access control**, **JWT authentication**, and API versioning.',
+      'Integrated third-party services like **Razorpay** and **Google Maps** to enhance application functionality and user experience.',
+      'Built advanced business solutions such as **form builders**, **appointment schedulers**, and **workflow-driven rule engines**.',
+      'Actively participated in Agile ceremonies: sprint planning, reviews, retrospectives, and **pair programming**.',
+      'Configured and deployed applications on **Netlify**, **Vercel** (frontend), and **Heroku**, **Render**, **AWS EC2/Lambda** (backend), using **Docker** and **PM2** for stability.',
+      'Monitored application health using **New Relic**, **ELK Stack**, and custom logging to proactively resolve issues.',
+      'Designed and optimized database schemas for **SQL** (`MySQL`, `PostgreSQL`) and **NoSQL** (`MongoDB`) with indexing and data migration strategies.',
+      'Mentored junior developers, conducted **code reviews**, and contributed to documentation, architecture diagrams, onboarding guides, and technical blogs.'
+    ]
+  };
+
+
 
 
 

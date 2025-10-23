@@ -390,7 +390,7 @@
       </section>
 
 
-      <section id="roles" class="section">
+      <!-- <section id="roles" class="section">
         <mat-card class="section-card">
           <mat-card-header>
             <mat-card-title> 💼 Roles & Responsibilities</mat-card-title>
@@ -398,52 +398,6 @@
           <mat-card-content>
             <h3>Full Stack Developer (MEAN)</h3>
             <p><em>5+ years of experience | Angular + Node.js + Express</em></p>
-            <!-- <ul>
-              <li>
-                Architected and maintained full-stack applications using the MEAN stack with an emphasis on modular
-                code, test-driven development (TDD), and clean architecture.
-              </li>
-              <li>
-                Developed highly responsive and reusable front-end components in Angular, leveraging RxJS, Angular
-                Material, NgRx, and dynamic forms.
-              </li>
-              <li>
-                Designed robust RESTful and GraphQL APIs using Node.js and Express with role-based access control, JWT
-                authentication, and API versioning.
-              </li>
-              <li>
-                Led initiatives to integrate third-party services like Razorpay, Twilio, Firebase, AWS S3, and Google
-                Maps into web applications.
-              </li>
-              <li>
-                Built advanced form builders, blog engines, appointment schedulers, and workflow-based rule engines to
-                support business-specific logic.
-              </li>
-              <li>
-                Automated test suites using Jasmine, Karma, Mocha, and integrated them into CI/CD pipelines for early
-                bug detection and quality assurance.
-              </li>
-              <li>
-                Regularly engaged in Agile/Scrum rituals — sprint planning, reviews, retrospectives, and pair
-                programming — ensuring clear visibility and delivery alignment.
-              </li>
-              <li>
-                Configured and deployed applications on platforms like Netlify, Vercel (frontend) and Heroku, Render,
-                AWS EC2/Lambda (backend) with Docker and PM2 for production stability.
-              </li>
-              <li>
-                Implemented application monitoring using New Relic, ELK Stack, and custom logging solutions for
-                proactive issue resolution.
-              </li>
-              <li>
-                Hands-on experience with database design, indexing strategies, and data migration across SQL (MySQL,
-                PostgreSQL) and NoSQL (MongoDB) systems.
-              </li>
-              <li>
-                Contributed to system documentation, architecture diagrams, onboarding guides, and technical blogs to
-                improve team efficiency and knowledge retention.
-              </li>
-            </ul> -->
             <ul>
               <li><strong>Full Stack Developer (MEAN)</strong> | 5+ years of experience | Angular + Node.js + Express
               </li>
@@ -457,8 +411,6 @@
                 Google Maps to enhance application functionality.</li>
               <li>Build advanced business-specific solutions like form builders, appointment schedulers,
                 and workflow-based rule engines.</li>
-              <!-- <li>Implement automated test suites with Jasmine, Karma, and Mocha, integrated into CI/CD pipelines to
-                ensure early bug detection and quality assurance.</li> -->
               <li>Participate in Agile processes, including sprint planning, reviews, retrospectives, and pair
                 programming, ensuring delivery alignment and team collaboration.</li>
               <li>Configure and deploy applications on platforms like Netlify, Vercel (frontend), and Heroku, Render,
@@ -469,6 +421,22 @@
                 indexing strategies and data migration.</li>
               <li>Mentor junior developers, conduct code reviews, contribute to system documentation, architecture
                 diagrams, onboarding guides, and technical blogs to enhance team efficiency and knowledge sharing.</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </section> -->
+
+
+      <section id="roles" class="section">
+        <mat-card class="section-card">
+          <mat-card-header>
+            <mat-card-title>{{ roles.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <h3>{{ roles.position }}</h3>
+            <p><em>{{ roles.experience }}</em></p>
+            <ul>
+              <li *ngFor="let item of roles.responsibilities" [innerHTML]="item | markdown"></li>
             </ul>
           </mat-card-content>
         </mat-card>
@@ -488,9 +456,9 @@
                   <img *ngIf="project.image" mat-card-image [src]="project.image" [alt]="project.title + ' Screenshot'">
                   <mat-card-title>{{ project.title }}</mat-card-title>
                   <mat-card-content>
-                    <p>{{ project.description }}</p>
+                    <p [innerHTML]="project.description | markdown"></p>
                     <ul class="project-highlights">
-                      <li *ngFor="let point of project.highlights">{{ point }}</li>
+                      <li *ngFor="let point of project.highlights" [innerHTML]="point | markdown"></li>
                     </ul>
                     <a class="project-link" *ngIf="project.link" [href]="project.link" target="_blank">
                       <p>Visit {{project.title}}</p>
