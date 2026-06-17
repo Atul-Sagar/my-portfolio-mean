@@ -1,40 +1,41 @@
-import { AfterViewInit, Component, Inject } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatButtonModule } from "@angular/material/button";
-import { MatCardModule } from "@angular/material/card";
+import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatSliderModule } from '@angular/material/slider';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { trigger, transition, style, state, animate } from '@angular/animations';
 import { MarkdownPipe } from './markdown.pipe';
 
-
+export interface Skill {
+  name: string;
+  value: number;
+  icon: string;
+  category: string;
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    // RouterOutlet
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatSliderModule,
     FormsModule,
     NgFor,
+    NgIf,
     ReactiveFormsModule,
     RouterModule,
     MatProgressBarModule,
-    NgIf,
-    MarkdownPipe
+    MarkdownPipe,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -42,221 +43,254 @@ import { MarkdownPipe } from './markdown.pipe';
     trigger('fadeInUp', [
       state('hidden', style({ opacity: 0, transform: 'translateY(20px)' })),
       state('visible', style({ opacity: 1, transform: 'translateY(0)' })),
-      transition('hidden => visible', animate('600ms ease-out'))
-    ])
-  ]
+      transition('hidden => visible', animate('500ms ease-out')),
+    ]),
+  ],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   title = 'my-portfolio';
+  showSidenav = false;
+  visibleSkills: boolean[] = [];
+  activeSkillTab = 'All';
+  skillTabs = ['All', 'Management', 'Frontend', 'Backend', 'DevOps'];
 
-  posts = [
-    { title: 'Introduction to Angular', link: '/blog/angular-intro' },
-    { title: 'Using RxJS in Angular', link: '/blog/rxjs-angular' },
-    { title: 'Deploying with Netlify', link: '/blog/deploy-netlify' }
+  // ── Hero Stats ────────────────────────────────────────────
+  heroStats = [
+    { value: '5+', label: 'Years Experience' },
+    { value: '4+', label: 'Enterprise Projects' },
+    { value: '10+', label: 'Developers Mentored' },
+    { value: 'BFSI', label: 'Domain Expertise' },
   ];
 
+  // ── What I'm Looking For ──────────────────────────────────
+  lookingFor = [
+    {
+      icon: 'manage_accounts',
+      title: 'IT / Engineering Manager',
+      desc: 'A role where I lead cross-functional teams, own delivery pipelines, and align technology with business outcomes.',
+    },
+    {
+      icon: 'account_balance',
+      title: 'BFSI or Fintech Domain',
+      desc: 'I bring 5+ years of insurance-domain context — compliance, agent workflows, policy systems — and can hit the ground running.',
+    },
+    {
+      icon: 'groups',
+      title: 'Team-First Culture',
+      desc: 'Organisations that invest in engineering excellence, mentorship, and sustainable delivery practices.',
+    },
+    {
+      icon: 'hub',
+      title: 'Hybrid or Remote',
+      desc: 'Flexible work arrangements that allow for focused deep work while staying connected with the team.',
+    },
+  ];
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document
-  ) {
+  // ── Leadership Highlights ─────────────────────────────────
+  leadershipItems = [
+    {
+      icon: 'groups',
+      title: 'Team Leadership',
+      desc: 'Mentored and guided junior developers at SBI Life, running regular code reviews, 1-on-1s, and onboarding sessions for new hires.',
+    },
+    {
+      icon: 'task_alt',
+      title: 'Project Ownership',
+      desc: 'Owned full delivery lifecycle — from requirements gathering and architecture to deployment and post-release monitoring — on 4+ enterprise platforms.',
+    },
+    {
+      icon: 'speed',
+      title: 'Delivery Performance',
+      desc: 'Reduced average API response times by 30% and deployment turnaround by 40% through microservices re-architecture and CI/CD automation.',
+    },
+    {
+      icon: 'handshake',
+      title: 'Stakeholder Management',
+      desc: 'Coordinated directly with business, compliance, and UI/UX teams at SBI Life to translate requirements into scalable technical solutions.',
+    },
+    {
+      icon: 'auto_awesome',
+      title: 'Agile Champion',
+      desc: 'Led sprint ceremonies — planning, standups, retrospectives, and reviews — keeping teams aligned and delivery on track.',
+    },
+    {
+      icon: 'insights',
+      title: 'Process Improvement',
+      desc: 'Introduced reusable NPM libraries, architecture documentation standards, and automated CI/CD workflows that reduced manual effort across the team.',
+    },
+  ];
 
+  // ── Skills ────────────────────────────────────────────────
+  skills: Skill[] = [
+    // Management
+    { name: 'Team Leadership', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png', category: 'Management' },
+    { name: 'Project Planning', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/1484/1484861.png', category: 'Management' },
+    { name: 'Agile & Scrum', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/5259/5259945.png', category: 'Management' },
+    { name: 'Mentoring', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/428/428740.png', category: 'Management' },
+    { name: 'Code Review', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/845/845646.png', category: 'Management' },
+    { name: 'Communication', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png', category: 'Management' },
+    { name: 'Problem Solving', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/2910/2910764.png', category: 'Management' },
+    { name: 'Stakeholder Mgmt', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png', category: 'Management' },
+    // Frontend
+    { name: 'Angular', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg', category: 'Frontend' },
+    { name: 'TypeScript', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', category: 'Frontend' },
+    { name: 'JavaScript', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', category: 'Frontend' },
+    { name: 'HTML', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'Frontend' },
+    { name: 'CSS / SCSS', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', category: 'Frontend' },
+    // Backend
+    { name: 'Node.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', category: 'Backend' },
+    { name: 'Express.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', category: 'Backend' },
+    { name: 'MongoDB', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', category: 'Backend' },
+    { name: 'MySQL', value: 6, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', category: 'Backend' },
+    { name: 'Python', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', category: 'Backend' },
+    { name: 'REST APIs', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/919/919836.png', category: 'Backend' },
+    // DevOps
+    { name: 'Git & GitHub', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', category: 'DevOps' },
+    { name: 'Docker', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', category: 'DevOps' },
+    { name: 'Jenkins', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg', category: 'DevOps' },
+    { name: 'GitHub Actions', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png', category: 'DevOps' },
+  ];
+
+  get filteredSkills(): Skill[] {
+    if (this.activeSkillTab === 'All') return this.skills;
+    return this.skills.filter(s => s.category === this.activeSkillTab);
   }
 
-  visibleSkills: boolean[] = [];
-
-  markdownContent = `
-  ### Blog Posts
-  
-  - [Introduction to Angular](/blog/angular-intro)
-  - [Using RxJS in Angular](/blog/rxjs-angular)
-  - [Deploying with Netlify](/blog/deploy-netlify)
-  `;
-
-  blogs = [
-    { title: 'Intro to Angular', slug: 'intro-to-angular' },
-    { title: 'Mastering RxJS', slug: 'mastering-rxjs' },
-    { title: 'Understanding NgModules', slug: 'understanding-ngmodules' },
+  // ── Experience ────────────────────────────────────────────
+  experience = [
+    {
+      role: 'Assistant Manager – R&D Developer',
+      company: 'SBI Life Insurance Company Ltd.',
+      duration: 'Nov 2020 – Present',
+      highlights: [
+        'Promoted to **Assistant Manager**, overseeing a team of developers across enterprise web platform initiatives in the BFSI domain.',
+        'Architected and led development of **M-Connect** — SBI Life\'s agent-facing platform — serving thousands of agents nationally, resulting in a measurable reduction in policy issuance time.',
+        'Re-architected monolithic legacy systems into **microservices** using Node.js and Express, improving deployment speed by **40%** and system scalability.',
+        'Optimised backend APIs through caching, async processing, and query tuning, reducing average response time by **30%**.',
+        'Mentored and trained **10+ junior developers** in Angular best practices, Git workflows, and system design patterns.',
+        'Automated **CI/CD pipelines** using Jenkins and GitHub Actions, eliminating manual deployment steps and enabling zero-downtime releases.',
+        'Conducted regular **code reviews, performance audits, and security assessments** to maintain quality and compliance standards.',
+        'Coordinated cross-functional R&D initiatives exploring **AWS Lambda, chatbot integrations, and OCR pipelines** for process automation.',
+        'Delivered client-facing solutions directly collaborating with business, compliance, and UI/UX stakeholders.',
+      ],
+    },
   ];
 
-  // skills = [
-  //   { name: 'HTML', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  //   { name: 'CSS', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  //   { name: 'JavaScript', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  //   { name: 'Angular', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
-  //   { name: 'Node.js', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  //   { name: 'Express.js', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-  //   { name: 'MySQL', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  //   // { name: '.NET', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg' },
-  //   { name: 'Python', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  //   // { name: 'Golang', value: 3, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg' },
-  //   { name: 'Flutter', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
-  //   { name: 'Leadership', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
-  //   { name: 'Teamwork', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png' },
-  //   { name: 'Communication ', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' }
-  // ];
+  // ── Roles & Responsibilities ──────────────────────────────
+  roles = {
+    position: 'Assistant Manager / Tech Lead (MEAN Stack)',
+    experience: '5+ years | Angular · Node.js · Express · MongoDB · BFSI Domain',
+    responsibilities: [
+      '**End-to-end project ownership** — from requirement analysis and architecture to deployment and post-release monitoring.',
+      '**Team leadership** — daily standups, sprint planning, retrospectives, and performance mentoring for junior engineers.',
+      'Designed scalable **MEAN stack architectures** with modular codebase standards and reusable component libraries.',
+      'Implemented **RBAC, JWT authentication**, and API versioning across enterprise platforms handling sensitive insurance data.',
+      'Drove **Agile delivery** — sprint ceremonies, backlog grooming, stakeholder demos, and release planning.',
+      'Established **CI/CD workflows** using Jenkins and GitHub Actions; deployed on AWS EC2/Lambda, Docker, PM2.',
+      'Maintained application health with **New Relic, ELK Stack**, and custom logging strategies.',
+      'Designed and optimised **SQL** (MySQL, PostgreSQL) and **NoSQL** (MongoDB) schemas including indexing and migrations.',
+      'Authored technical documentation, architecture diagrams, and onboarding guides to support team scaling.',
+      'Explored emerging tech integrations: **AI/ML, chatbots, OCR, and cloud-native services** for R&D initiatives.',
+    ],
+  };
 
-  // skills = [
-  //   { name: 'HTML', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  //   { name: 'CSS', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  //   { name: 'JavaScript', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  //   { name: 'Angular', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
-  //   { name: 'Node.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  //   { name: 'Express.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-  //   { name: 'MySQL', value: 5, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  //   { name: 'Python', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  //   { name: 'Flutter', value: 6, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
-  //   { name: 'Leadership', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
-  //   { name: 'Teamwork', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png' },
-  //   { name: 'Communication ', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' }
-  // ];
-
-  skills = [
-    // Core MEAN Stack
-    { name: 'HTML', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-    { name: 'CSS', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-    { name: 'JavaScript', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { name: 'Angular', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
-    { name: 'Node.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'Express.js', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-
-    // Databases & Backend
-    { name: 'MongoDB', value: 8, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-    { name: 'MySQL', value: 6, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-    { name: 'RESTful APIs', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/919/919836.png' },
-
-    // Other Technical Skills
-    { name: 'Python', value: 7, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    // { name: 'Flutter', value: 6, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
-    { name: 'Git & GitHub', value: 9, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-    // { name: 'CI/CD', value: 7, icon: 'https://cdn-icons-png.flaticon.com/512/4605/4605586.png' },
-
-    // Leadership & Soft Skills
-    { name: 'Team Leadership', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
-    { name: 'Teamwork', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/4228/4228703.png' },
-    { name: 'Communication', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/3416/3416078.png' },
-    { name: 'Mentoring', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/428/428740.png' },
-
-    // Project Management / Process
-    // { name: 'Agile & Scrum', value: 8, icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828899.png' },
-    { name: 'Project Planning', value: 10, icon: 'https://cdn-icons-png.flaticon.com/512/1484/1484861.png' },
-    { name: 'Code Review', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/845/845646.png' },
-    { name: 'Problem Solving', value: 9, icon: 'https://cdn-icons-png.flaticon.com/512/2910/2910764.png' }
-  ];
-
-
-
-  showSidenav = false;
-
+  // ── Projects ──────────────────────────────────────────────
   projects = [
     {
       title: 'M-Connect',
-      description: `**__An internal enterprise platform built for SBI Life Insurance to enhance agent productivity and streamline the new business process.__**`,
+      description: '**Enterprise agent platform for SBI Life Insurance**, enabling seamless new business processing for agents nationwide. One of the most business-critical platforms in the company\'s distribution stack.',
       highlights: [
-        'Built a mix of **template-driven**, **reactive**, and **dynamic forms** to handle different workflows.',
-        'Integrated Angular front-end with **secured APIs** and **role-based access control**.',
-        'Added **offline support** using **IndexedDB** and **caching**, helping agents work even without internet.',
-        'Improved performance by optimizing **API interaction** and **lazy loading** for heavy modules.',
-        'Designed a clean, user-friendly interface using **Angular Material** for a modern look and feel.',
-        'Worked on key forms like **Need Analysis**, **Benefit Illustration**, **Personal Details**, **Health Details**, and **ACR** for smooth data collection.',
-        'Integrated **eKYC/CKYC services** for customer convenience.',
-        'Implemented in-app document upload and verification through **third-party APIs**.',
-        'Converted the application into a **PWA**, making the same codebase installable across platforms.'
+        'Led a team building **dynamic and reactive forms** handling complex insurance workflows across 10+ product types.',
+        'Implemented **offline support** via IndexedDB and caching strategies — critical for agents in low-connectivity zones.',
+        'Integrated **eKYC/CKYC services** and third-party document verification APIs, cutting manual verification time significantly.',
+        'Converted to **PWA** — same codebase installable across desktop and mobile platforms.',
+        'Delivered **Angular Material** UI aligned with SBI Life brand and compliance guidelines.',
       ],
-      image: '',
-      link: 'https://mconnect.sbilife.co.in'
+      tags: ['Angular', 'Node.js', 'MongoDB', 'PWA', 'RBAC', 'IndexedDB', 'eKYC'],
+      link: 'https://mconnect.sbilife.co.in',
     },
     {
-      title: 'CLIP [Claims Investigation Portal]',
-      description: `**__An internal web-based portal for SBI Life Insurance to manage and streamline the claims investigation process, improving transparency, turnaround time, and case tracking.__**`,
+      title: 'CLIP – Claims Investigation Portal',
+      description: '**Internal portal for managing and tracking claims investigations** at SBI Life, improving transparency, turnaround time, and case accountability across 5 investigation types.',
       highlights: [
-        'Developed using **HTML**, **CSS**, and **Pure JS**.',
-        'Integrated authentication, investigator dashboards, and **role-based workflows**.',
-        'Worked closely with backend and QA teams to ensure reliable end-to-end functionality.',
-        'Covers **5 types of investigations**.',
-        'Document upload and management.',
-        'State management using **Cookies** and **Session Storage**.',
-        'REST API with **JWT token authentication**.'
+        'Built full investigator dashboard with **role-based workflows** and real-time case tracking.',
+        'Designed **JWT-secured REST APIs** with fine-grained access control per investigator role.',
+        'Integrated document upload, case notes, and approval chains covering the full investigation lifecycle.',
+        'State persistence via **session storage and cookies** to maintain context across multi-step flows.',
       ],
-      image: '',
-      link: 'https://clip.sbilife.co.in'
-    },
-    {
-      title: 'My Personal Portfolio',
-      description: `**__A fully responsive personal portfolio website built using Angular and Angular Material, showcasing my projects, experience, and blog. Designed with performance, accessibility, and smooth animations in mind.__**`,
-      highlights: [
-        'Built with **Angular**, deployed via **Netlify** with custom domain from GoDaddy.',
-        'Features smooth scroll navigation, **mobile-first design**, and sleek modern UI.',
-        'SEO-optimized and integrated with **GitHub** and blogs hosted on a subdomain.',
-        'Fully optimized with **WebP images** for faster loading.'
-      ],
-      image: '',
-      link: 'https://portfolio.axionix.in'
-    },
-    {
-      title: 'Interviews Cracked',
-      description: `**__A curated interview preparation platform built to help developers crack technical interviews with real-world questions, coding exercises, and structured topic-wise preparation.__**`,
-      highlights: [
-        'Built using **Angular** for frontend and **Node.js** for backend APIs.',
-        'Features question tagging, difficulty filters, bookmarks, and answer discussions.',
-        'Supports user authentication, personalized dashboards, and progress tracking.'
-      ],
-      image: '',
-      link: 'https://axionix.in'
+      tags: ['HTML', 'JavaScript', 'Node.js', 'JWT', 'REST APIs', 'RBAC'],
+      link: 'https://clip.sbilife.co.in',
     },
     {
       title: 'Insurance Product Configurator',
-      description: `**__A dynamic engine built for creating and customizing insurance products based on user inputs, business rules, and eligibility conditions — generating real-time premium calculations and JSON outputs with one-click integration with MConnect, SmartCare, and Smart Advisor.__**`,
+      description: '**No-code engine for creating and customising insurance products**, generating real-time premium calculations and JSON outputs with one-click integration into M-Connect, SmartCare, and Smart Advisor.',
       highlights: [
-        'Developed using **Angular Dynamic Reactive Forms**.',
-        'No-code platform for creating product APIs with 4 simple forms.',
-        'Integrated test platform to validate created APIs.'
+        'Built on **Angular Dynamic Reactive Forms** — non-technical product managers can configure new insurance products in minutes.',
+        'Integrated test platform allowing product APIs to be validated before production deployment.',
+        'Reduced product-launch cycle from weeks of engineering effort to a **same-day self-service workflow**.',
       ],
-      image: '',
-      link: ''
-    }
+      tags: ['Angular', 'Dynamic Forms', 'Node.js', 'REST APIs', 'JSON Engine'],
+      link: '',
+    },
+    {
+      title: 'Personal Portfolio',
+      description: '**Fully responsive portfolio** built with Angular and Angular Material, showcasing professional background, projects, and expertise. Optimised for performance, SEO, and accessibility.',
+      highlights: [
+        'Built with **Angular standalone components**, deployed via Netlify with custom GoDaddy domain.',
+        'Features **scroll animations, mobile-first design**, and WebP-optimised assets.',
+        'Custom **MarkdownPipe** for rendering rich content from TypeScript data structures.',
+      ],
+      tags: ['Angular', 'SCSS', 'Netlify', 'Angular Material', 'PWA'],
+      link: 'https://portfolio.axionix.in',
+    },
   ];
 
+  // ── Core Values ───────────────────────────────────────────
+  coreValues = [
+    { icon: 'verified_user', title: 'Accountability', desc: 'I own outcomes end-to-end — no blame, no excuses, full responsibility.' },
+    { icon: 'group_work', title: 'Collaboration', desc: 'Great products are built by teams. I invest in culture as much as code.' },
+    { icon: 'trending_up', title: 'Continuous Growth', desc: 'I stay current — new frameworks, management thinking, and industry trends.' },
+    { icon: 'flash_on', title: 'Focused Execution', desc: 'I prioritise ruthlessly and ship consistently. Deadlines are commitments.' },
+    { icon: 'workspace_premium', title: 'Craftsmanship', desc: 'I care about code quality, documentation, and doing things the right way.' },
+    { icon: 'balance', title: 'Sustainable Pace', desc: 'High performance is a marathon. I value work-life balance for myself and my teams.' },
+  ];
 
-  roles = {
-    title: '💼 Roles & Responsibilities',
-    position: 'Full Stack Developer (MEAN)',
-    experience: '5+ years of experience | Angular + Node.js + Express',
-    responsibilities: [
-      '**Lead Full Stack Developer (MEAN)** with ownership of end-to-end application lifecycle.',
-      'Architected and maintained **modular**, **scalable** full-stack applications using the **MEAN stack**.',
-      'Developed highly responsive, reusable front-end components with **Angular**, **RxJS**, **Angular Material**, **NgRx**, and **dynamic forms**.',
-      'Designed and implemented robust **RESTful** and **GraphQL APIs** with **role-based access control**, **JWT authentication**, and API versioning.',
-      'Integrated third-party services like **Razorpay** and **Google Maps** to enhance application functionality and user experience.',
-      'Built advanced business solutions such as **form builders**, **appointment schedulers**, and **workflow-driven rule engines**.',
-      'Actively participated in Agile ceremonies: sprint planning, reviews, retrospectives, and **pair programming**.',
-      'Configured and deployed applications on **Netlify**, **Vercel** (frontend), and **Heroku**, **Render**, **AWS EC2/Lambda** (backend), using **Docker** and **PM2** for stability.',
-      'Monitored application health using **New Relic**, **ELK Stack**, and custom logging to proactively resolve issues.',
-      'Designed and optimized database schemas for **SQL** (`MySQL`, `PostgreSQL`) and **NoSQL** (`MongoDB`) with indexing and data migration strategies.',
-      'Mentored junior developers, conducted **code reviews**, and contributed to documentation, architecture diagrams, onboarding guides, and technical blogs.'
-    ]
-  };
+  // ── Education ─────────────────────────────────────────────
+  education = [
+    { degree: 'MCA – Master of Computer Applications', institution: 'SIES College of Management Studies, Navi Mumbai', year: '2017 – 2020', score: 'CGPA: 6.5' },
+    { degree: 'BSc Information Technology', institution: 'Saket College of Arts, Science & Commerce, Kalyan', year: '2013 – 2016', score: 'CGPA: 6.10' },
+    { degree: 'HSC – Higher Secondary Certificate', institution: 'Saket College of Arts, Science & Commerce, Kalyan', year: '2011 – 2013', score: '51.50%' },
+    { degree: 'SSC – Secondary School Certificate', institution: 'Ideal English High School, Kalyan', year: '2010 – 2011', score: '69.82%' },
+  ];
 
+  // ── Certifications ────────────────────────────────────────
+  certifications = [
+    { title: 'Flutter Developer Certification', issuer: 'Google / Udemy', year: '2020' },
+  ];
 
+  // ── Lifecycle ─────────────────────────────────────────────
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
-
+  ngOnInit() {
+    this.visibleSkills = new Array(this.skills.length).fill(false);
+  }
 
   ngAfterViewInit() {
-    const items = document.querySelectorAll('.skill-card');
-    items.forEach((el, index) => {
-      this.visibleSkills[index] = false;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            this.visibleSkills[index] = true;
-            observer.unobserve(entry.target);
-          }
-        },
-        { threshold: 0.2 }
-      );
-
-      observer.observe(el);
-    });
+    setTimeout(() => {
+      const items = this.document.querySelectorAll('.skill-card');
+      items.forEach((el, index) => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              this.visibleSkills[index] = true;
+              observer.unobserve(entry.target);
+            }
+          },
+          { threshold: 0.2 }
+        );
+        observer.observe(el);
+      });
+    }, 100);
   }
 
   toggleSidenav() {
@@ -264,35 +298,15 @@ export class AppComponent implements AfterViewInit {
   }
 
   scrollTo(section: string) {
-
     if (section === 'Blog') {
       this.document.location.href = 'https://techblogs.axionix.in/';
+      return;
     }
-
-    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+    this.document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
     this.showSidenav = false;
-
-    // const element = this.document.getElementById(section);
-    // if (element) {
-    //   const headerOffset = 70; // Adjust this based on your actual header height
-    //   const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-    //   const offsetPosition = elementPosition - headerOffset;
-
-    //   window.scrollTo({
-    //     top: offsetPosition,
-    //     behavior: 'smooth'
-    //   });
-    // }
-
-    // this.showSidenav = false;
-
   }
 
-
-
-
-
-  onIconError(event: any) {
-    event.target.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'; // Default icon URL
+  onIconError(event: Event) {
+    (event.target as HTMLImageElement).src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
   }
 }
