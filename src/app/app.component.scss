@@ -17,7 +17,7 @@ $border-dark: #2d4259;
 $font-display: 'Playfair Display', Georgia, serif;
 $font-body:    'Inter', 'Segoe UI', system-ui, sans-serif;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
 
 // ── Mixins ─────────────────────────────────────────────────
 @mixin flex-center { display: flex; align-items: center; justify-content: center; }
